@@ -1,11 +1,4 @@
-import json
-
 from django.contrib.auth import get_user_model
-from django.contrib.sites.shortcuts import get_current_site
-from django.core.mail import send_mail
-from django.http import JsonResponse
-from django.utils.encoding import force_bytes, force_str
-from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from rest_framework import generics, permissions
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
