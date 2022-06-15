@@ -1,5 +1,5 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-from django.db.models import CharField, EmailField
+from django.db.models import CharField, EmailField, BooleanField
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
@@ -17,16 +17,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = EmailField(_("Email"), max_length=255, unique=True)
     first_name = None  # type: ignore
     last_name = None  # type: ignore
+    is_superuser = BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
 
     objects = CustomUserManager()
 
-    def get_absolute_url(self):
-        """Get url for user's detail view.
-
-        Returns:
-            str: URL for user detail.
-
-        """
-        return reverse("users:detail", kwargs={"email": self.email})

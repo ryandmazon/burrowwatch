@@ -18,7 +18,7 @@ export const MatxLayoutSettings = {
     },
     // Footer options
     footer: {
-        show: true,
+        show: false,
         fixed: false,
         theme: 'burrowWatch', // View all valid theme colors inside MatxTheme/themeColors.js
     },

@@ -84,20 +84,11 @@ export const AuthProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     const login = async (email, password) => {
-        const response = await axios.post('http://localhost:8000/api/login', {
+        await axios.post('http://localhost:8000/api/login', {
             email,
             password,
         })
-        const { accessToken, user } = response.data
-
-        setSession(accessToken)
-
-        dispatch({
-            type: 'LOGIN',
-            payload: {
-                user,
-            },
-        })
+        .then(res => setSession(res.data.access))
     }
 
     const register = async (email, username, password) => {
@@ -107,16 +98,9 @@ export const AuthProvider = ({ children }) => {
             password,
         })
 
-        const { accessToken, user } = response.data
+        const { accessToken } = response.data.access
 
         setSession(accessToken)
-
-        dispatch({
-            type: 'REGISTER',
-            payload: {
-                user,
-            },
-        })
     }
 
     const logout = () => {
@@ -131,16 +115,17 @@ export const AuthProvider = ({ children }) => {
 
                 if (accessToken && isValidToken(accessToken)) {
                     setSession(accessToken)
-                    const response = await axios.get('/api/auth/profile')
-                    const { user } = response.data
-
-                    dispatch({
-                        type: 'INIT',
-                        payload: {
-                            isAuthenticated: true,
-                            user,
-                        },
+                    await axios.get('http://localhost:8000/api/users/')
+                    .then(res => {
+                        dispatch({
+                            type: 'INIT',
+                            payload: {
+                                isAuthenticated: true,
+                                user: res.data[0],
+                            },
+                        })
                     })
+
                 } else {
                     dispatch({
                         type: 'INIT',

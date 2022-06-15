@@ -9,7 +9,6 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
         # Add custom claims
         token["email"] = user.email
-        token["organization"] = user.organization
         # ...
 
         return token
