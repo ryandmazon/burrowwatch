@@ -63,15 +63,15 @@ const TopSellingTable = () => {
     const { palette } = useTheme()
     const bgError = palette.error.main
     const bgPrimary = palette.primary.main
-    const bgSecondary = palette.secondary.main
+    const bgSecondary = palette.background.main
 
     return (
         <Card elevation={3} sx={{ pt: '20px', mb: 3 }}>
             <CardHeader>
-                <Title>top selling products</Title>
-                <Select size="small" defaultValue="this_month">
-                    <MenuItem value="this_month">This Month</MenuItem>
-                    <MenuItem value="last_month">Last Month</MenuItem>
+                <Title>most active burrows</Title>
+                <Select size="small" defaultValue="this_year">
+                    <MenuItem value="this_year">This Year</MenuItem>
+                    <MenuItem value="last_year">Last Year</MenuItem>
                 </Select>
             </CardHeader>
             <Box overflow="auto">
@@ -82,10 +82,10 @@ const TopSellingTable = () => {
                                 Name
                             </TableCell>
                             <TableCell sx={{ px: 0 }} colSpan={2}>
-                                Revenue
+                                Owl Count
                             </TableCell>
                             <TableCell sx={{ px: 0 }} colSpan={2}>
-                                Stock Status
+                                Burrow Status
                             </TableCell>
                             <TableCell sx={{ px: 0 }} colSpan={1}>
                                 Action
@@ -101,7 +101,6 @@ const TopSellingTable = () => {
                                     sx={{ px: 0, textTransform: 'capitalize' }}
                                 >
                                     <Box display="flex" alignItems="center">
-                                        <Avatar src={product.imgUrl} />
                                         <Paragraph sx={{ m: 0, ml: 4 }}>
                                             {product.name}
                                         </Paragraph>
@@ -112,11 +111,10 @@ const TopSellingTable = () => {
                                     colSpan={2}
                                     sx={{ px: 0, textTransform: 'capitalize' }}
                                 >
-                                    $
                                     {product.price > 999
                                         ? (product.price / 1000).toFixed(1) +
                                         'k'
-                                        : product.price}
+                                        : product.price} owls
                                 </TableCell>
 
                                 <TableCell
@@ -124,19 +122,13 @@ const TopSellingTable = () => {
                                     align="left"
                                     colSpan={2}
                                 >
-                                    {product.available ? (
-                                        product.available < 20 ? (
-                                            <Small bgcolor={bgSecondary}>
-                                                {product.available} available
-                                            </Small>
-                                        ) : (
-                                            <Small bgcolor={bgPrimary}>
-                                                in stock
-                                            </Small>
-                                        )
+                                    {!product.critical ? (
+                                        <Small bgcolor={bgSecondary}>
+                                            healthy
+                                        </Small>
                                     ) : (
                                         <Small bgcolor={bgError}>
-                                            out of stock
+                                            critical
                                         </Small>
                                     )}
                                 </TableCell>
@@ -156,34 +148,29 @@ const TopSellingTable = () => {
 
 const productList = [
     {
-        imgUrl: '/assets/images/products/headphone-2.jpg',
-        name: 'earphone',
-        price: 100,
-        available: 15,
+        name: 'Burrow 072',
+        price: 12,
+        critical: false,
     },
     {
-        imgUrl: '/assets/images/products/headphone-3.jpg',
-        name: 'earphone',
-        price: 1500,
-        available: 30,
+        name: 'Burrow 191',
+        price: 10,
+        critical: false,
     },
     {
-        imgUrl: '/assets/images/products/iphone-2.jpg',
-        name: 'iPhone x',
-        price: 1900,
-        available: 35,
+        name: 'Burrow 012',
+        price: 9,
+        critical: false,
     },
     {
-        imgUrl: '/assets/images/products/iphone-1.jpg',
-        name: 'iPhone x',
-        price: 100,
-        available: 0,
+        name: 'Burrow 328',
+        price: 9,
+        critical: true,
     },
     {
-        imgUrl: '/assets/images/products/headphone-3.jpg',
-        name: 'Head phone',
-        price: 1190,
-        available: 5,
+        name: 'Burrow 135',
+        price: 8,
+        critical: false,
     },
 ]
 

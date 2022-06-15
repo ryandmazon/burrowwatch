@@ -45,7 +45,7 @@ const RowCards = () => {
     const { palette } = useTheme()
     const textMuted = palette.text.secondary
 
-    return [1, 2, 3, 4].map((id) => (
+    return [182, 201, 324, 417].map((id) => (
         <Fragment key={id}>
             <Card
                 sx={{ py: 1, px: 2, }}
@@ -55,19 +55,8 @@ const RowCards = () => {
                     <Grid item md={5} xs={7}>
                         <Box display="flex" alignItems="center">
                             <Checkbox />
-                            <Hidden smDown>
-                                {id % 2 === 1 ? (
-                                    <StarOutline size="small">
-                                        <Icon>star_outline</Icon>
-                                    </StarOutline>
-                                ) : (
-                                    <DateRange size="small">
-                                        <Icon>date_range</Icon>
-                                    </DateRange>
-                                )}
-                            </Hidden>
                             <ProjectName>
-                                Project {id}
+                                Burrow {id}
                             </ProjectName>
                         </Box>
                     </Grid>
@@ -85,18 +74,6 @@ const RowCards = () => {
                                 position="relative"
                                 marginLeft='-0.875rem !important'
                             >
-                                <StyledAvatar
-                                    src="/assets/images/face-4.jpg"
-                                />
-                                <StyledAvatar
-                                    src="/assets/images/face-4.jpg"
-                                />
-                                <StyledAvatar
-                                    src="/assets/images/face-4.jpg"
-                                />
-                                <StyledAvatar sx={{ fontSize: '14px' }}>
-                                    +3
-                                </StyledAvatar>
                             </Box>
                         </Grid>
                     </Hidden>

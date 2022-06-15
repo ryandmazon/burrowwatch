@@ -45,7 +45,7 @@ const DoughnutChart = ({ height, color = [] }) => {
 
         series: [
             {
-                name: 'Traffic Rate',
+                name: 'Burrow Counter',
                 type: 'pie',
                 radius: ['45%', '72.55%'],
                 center: ['50%', '50%'],
@@ -81,13 +81,12 @@ const DoughnutChart = ({ height, color = [] }) => {
                 data: [
                     {
                         value: 65,
-                        name: 'Google',
+                        name: 'Checked',
                     },
                     {
-                        value: 20,
-                        name: 'Facebook',
+                        value: 35,
+                        name: 'Not Checked',
                     },
-                    { value: 15, name: 'Others' },
                 ],
                 itemStyle: {
                     emphasis: {

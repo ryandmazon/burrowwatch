@@ -143,8 +143,6 @@ const Layout1Topbar = () => {
                         <NotificationBar />
                     </NotificationProvider>
 
-                    <ShoppingCart />
-
                     <MatxMenu
                         menuButton={
                             <UserMenu>
