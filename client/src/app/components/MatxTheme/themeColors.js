@@ -1,12 +1,12 @@
 const textLight = {
-    primary: 'rgba(52, 49, 76, 1)',
+    primary: '#ffffff',
     secondary: 'rgba(52, 49, 76, 0.54)',
     disabled: 'rgba(52, 49, 76, 0.38)',
     hint: 'rgba(52, 49, 76, 0.38)',
 }
 
 const textDark = {
-    primary: '#fff',
+    primary: '#0b1d3b',
     secondary: 'rgba(255, 255, 255, 0.7)',
     disabled: 'rgba(255, 255, 255, 0.64)',
     hint: 'rgba(255, 255, 255, 0.64)',
@@ -23,6 +23,23 @@ const errorColor = {
 }
 
 export const themeColors = {
+    burrowWatch: {
+        palette: {
+            type: 'light',
+            primary: {
+                main: '#0b1d3b',
+                contrastText: textLight.primary,
+            },
+            secondary: {
+                main: '#d5dde9',
+                contrastText: textDark.primary
+            },
+            background: {
+                main: '#688ac5',
+                contrastText: textLight.primary
+            }
+        }
+    },
     whitePurple: {
         palette: {
             type: 'light',

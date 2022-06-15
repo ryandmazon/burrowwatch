@@ -5,7 +5,7 @@ import { themes } from '../MatxTheme/initThemes'
 // DOC http://demos.ui-lib.com/matx-react-doc/layout.html
 export const MatxLayoutSettings = {
     activeLayout: 'layout1', // layout1, layout2
-    activeTheme: 'blue', // View all valid theme colors inside MatxTheme/themeColors.js
+    activeTheme: 'burrowWatch', // View all valid theme colors inside MatxTheme/themeColors.js
     perfectScrollbar: false,
 
     themes: themes,
@@ -14,12 +14,12 @@ export const MatxLayoutSettings = {
     secondarySidebar: {
         show: true,
         open: false,
-        theme: 'slateDark1', // View all valid theme colors inside MatxTheme/themeColors.js
+        theme: 'burrowWatch', // View all valid theme colors inside MatxTheme/themeColors.js
     },
     // Footer options
     footer: {
         show: true,
         fixed: false,
-        theme: 'slateDark1', // View all valid theme colors inside MatxTheme/themeColors.js
+        theme: 'burrowWatch', // View all valid theme colors inside MatxTheme/themeColors.js
     },
 }

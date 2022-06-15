@@ -34,7 +34,7 @@ const IMG = styled('img')(() => ({
 }))
 
 const JWTRoot = styled(JustifyBox)(() => ({
-    background: '#1A2038',
+    background: '#0b1d3b',
     minHeight: '100% !important',
     '& .card': {
         maxWidth: 800,
@@ -88,7 +88,7 @@ const JwtLogin = () => {
                     <Grid item lg={5} md={5} sm={5} xs={12}>
                         <JustifyBox p={4} height="100%">
                             <IMG
-                                src="/assets/images/illustrations/dreamer.svg"
+                                src="/assets/images/logos/brandmark-design.png"
                                 alt=""
                             />
                         </JustifyBox>
@@ -143,7 +143,7 @@ const JwtLogin = () => {
                                             checked={userInfo.agreement || true}
                                         />
                                     }
-                                    label="Remeber me"
+                                    label="Remember me"
                                 />
 
                                 {message && (
