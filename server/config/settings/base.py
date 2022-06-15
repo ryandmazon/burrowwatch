@@ -85,10 +85,12 @@ THIRD_PARTY_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
     "drf_spectacular",
+    "location_field.apps.DefaultConfig",
 ]
 
 LOCAL_APPS = [
     "server.users",
+    "burrow",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -312,3 +314,11 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
+LOCATION_FIELD = {
+    'map.provider': 'Google',
+    'search.provider': 'Google',
+    'provider.google_api': '//maps.google.com/maps/api/js?sensor=false',
+    'provider.google_api_key': 'AIzaSyCPoP5P36hF2vv3akp-qfK1SJpjXT6tdZI',
+    'provider.google_api_libraries': '',
+    'provider.google.map.type': 'ROADMAP',
+}
