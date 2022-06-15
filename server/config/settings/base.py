@@ -42,10 +42,14 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db(
-        "DATABASE_URL",
-        default="postgres:///server",
-    ),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'burrowwatch',
+        'USER': 'burrowuser',
+        'PASSWORD': 'Burr0wU$3r',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
