@@ -116,6 +116,23 @@ export const navigations = [
         ],
     },
     {
+        name: 'Burrow',
+        type: 'label',
+    },
+    {
+        name: 'Burrow',
+        children: [
+            {
+                name: 'Discovery',
+                path: '/burrow/discover',
+            },
+            {
+                name: 'Tracking',
+                path: '/burrow/track',
+            }
+        ]
+    },
+    {
         name: 'Documentation',
         icon: 'launch',
         type: 'extLink',
