@@ -53,8 +53,8 @@ const JwtLogin = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const [userInfo, setUserInfo] = useState({
-        email: 'jason@ui-lib.com',
-        password: 'dummyPass',
+        email: '',
+        password: '',
     })
     const [message, setMessage] = useState('')
     const { login } = useAuth()
@@ -97,7 +97,7 @@ const JwtLogin = () => {
                         <ContentBox>
                             <ValidatorForm onSubmit={handleFormSubmit}>
                                 <TextValidator
-                                    sx={{ mb: 3, width: '100%' }}
+                                    sx={{ mb: 2, width: '100%' }}
                                     variant="outlined"
                                     size="small"
                                     label="Email"
