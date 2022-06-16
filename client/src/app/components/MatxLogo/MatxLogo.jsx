@@ -1,10 +1,17 @@
 import React from 'react'
 import useSettings from 'app/hooks/useSettings'
+import logo from './favicon.png'
 
 const MatxLogo = ({ className }) => {
     const { settings } = useSettings()
     const theme = settings.themes[settings.activeTheme]
 
+    return(
+        <img src={logo} style={{width: '24px', height: '24px'}}/>
+    )
+}
+
+/*
     return (
         <svg
             width="24px"
@@ -66,5 +73,6 @@ const MatxLogo = ({ className }) => {
         </svg>
     )
 }
+*/
 
 export default MatxLogo

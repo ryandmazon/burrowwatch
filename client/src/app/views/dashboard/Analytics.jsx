@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react'
 import RowCards from './shared/RowCards'
-import Campaigns from './shared/Campaigns'
 import { Grid, Card } from '@mui/material'
 import StatCards2 from './shared/StatCards2'
 import DoughnutChart from './shared/Doughnut'
-import UpgradeCard from './shared/UpgradeCard'
+import BurrowMap from './shared/BurrowMap'
 import { styled, useTheme } from '@mui/system'
 import TopSellingTable from './shared/TopSellingTable'
 
@@ -59,6 +58,10 @@ const Analytics = () => {
                                     palette.secondary.main,
                                 ]}
                             />
+                        </Card>
+                        <Card sx={{ px: 3, py: 2, mb: 3 }}>
+                            <Title>Burrow Map</Title>
+                            <BurrowMap />
                         </Card>
                     </Grid>
                 </Grid>
