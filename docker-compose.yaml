@@ -1,50 +1,43 @@
-services:
-  postgres:
-    restart: always
+version: "3.3"
+services:  
+  db:
     image: postgres:latest
+    volumes:
+     - ./backup_data/db:/var/lib/postgresql/data
     environment:
-     - POSTGRES_PASSWORD=Burr0wU$3r
-     - POSTGRES_USER=burrowuser
      - POSTGRES_DB=burrowwatch
-    ports:
-     - "5432:5432"
+     - POSTGRES_USER=burrowuser
+     - POSTGRES_PASSWORD=Burr0wU$$3r
     networks:
-     - db-net
+     - db-network
 
-  project:
-    restart: always
-    container_name: backend
-    command: bash -c "python check_db.py --service-name postgres --ip db --port 5432 && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-    build:
-      context: ./project/
-      dockerfile: Dockerfile
-    expose:
-     - 8000
-    environment:
-     - DATABASE_URL=postgres://burowuser:Burr0wU$3r@db:5432/burrowwatch
-     - DB_USER=burrowuser
-     - DB_PASSWORD=Burr0wU$3r
-     - DB_NAME=burrowwatch
+  backend:
+    build: ./server
+    volumes:
+     - ./server:/app
     depends_on:
      - db
+    links:
+     - db:db
     networks:
-     - db-net
-    
+     - db-network
+  
   frontend:
-    restart: always
-    command: npm start
-    container_name: frontend
-    build:
-      context: ./frontend/
-      dockerfile: Dockerfile
+    build: ./client
+    volumes:
+      - ./client:/app
     ports:
-     - "3000:3000"
-    stdin_open: true
+      - 80:80
     depends_on:
-     - project
-    networks:
-     - db-net
+      - backend
+  
+  nginx_backend_server:
+    build: ./nginx-backend-server
+    ports:
+        - 8000:8000
+    depends_on:
+      - backend
 
 networks:
-  db-net:
+  db-network:
     driver: bridge
